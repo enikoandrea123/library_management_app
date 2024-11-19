@@ -1,19 +1,12 @@
 from flask import render_template, request, redirect, url_for
 from app import db
 from app.models import User, Book
-from flask import render_template
-from app import app
+
+from flask import current_app as app, render_template
 
 @app.route('/')
 def home():
     return render_template('home.html')
-
-app = app()
-
-@app.route('/')
-def home():
-    return render_template('home.html')
-
 
 @app.route('/users')
 def users():
