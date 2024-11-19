@@ -3,6 +3,12 @@ from app import db
 from app.models import User, Book
 from flask import render_template
 from app import create_app
+from flask import render_template
+from app import app
+
+@app.route('/')
+def home():
+    return render_template('home.html')
 
 app = create_app()
 
