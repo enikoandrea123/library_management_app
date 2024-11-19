@@ -6,21 +6,29 @@
     <title>Manage Books</title>
 </head>
 <body>
-    <h1>Manage Books</h1>
-    <a href="{{ url_for('home') }}">Back to Home</a>
-    <form method="POST" action="{{ url_for('add_book') }}">
-        <input type="text" name="title" placeholder="Book Title" required>
-        <input type="text" name="author" placeholder="Author" required>
-        <input type="text" name="isbn" placeholder="ISBN" required>
-        <input type="number" name="quantity" placeholder="Quantity" required>
-        <button type="submit">Add Book</button>
-    </form>
-
-    <h2>Existing Books</h2>
-    <ul>
-        {% for book in books %}
-        <li>{{ book.title }} by {{ book.author }} ({{ book.isbn }}) - Quantity: {{ book.quantity }}</li>
-        {% endfor %}
-    </ul>
+     <h1>Book Catalog</h1>
+    <a href="{{ url_for('add_book') }}">Add New Book</a>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{ book.id }}</td>
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.isbn }}</td>
+                <td>{{ book.quantity }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>

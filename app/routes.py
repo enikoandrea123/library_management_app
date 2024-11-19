@@ -1,8 +1,8 @@
-from flask import render_template, request, redirect, url_for
-from app import db
 from app.models import User, Book
-
 from flask import current_app as app, render_template
+from flask import render_template, request, redirect, url_for
+from app import create_app, db
+from app.models import Book
 
 @app.route('/')
 def home():
@@ -35,13 +35,22 @@ def books():
     all_books = Book.query.all()
     return render_template('books.html', books=all_books)
 
-@app.route('/add_book', methods=['POST'])
+@app.route('/books')
+def view_books():
+    books = Book.query.all()
+    return render_template('books.html', books=books)
+
+@app.route('/books/add', methods=['GET', 'POST'])
 def add_book():
-    title = request.form['title']
-    author = request.form['author']
-    isbn = request.form['isbn']
-    quantity = request.form['quantity']
-    new_book = Book(title=title, author=author, isbn=isbn, quantity=quantity)
-    db.session.add(new_book)
-    db.session.commit()
-    return redirect(url_for('books'))
+    if request.method == 'POST':
+        title = request.form['title']
+        author = request.form['author']
+        isbn = request.form['isbn']
+        quantity = int(request.form['quantity'])
+
+        new_book = Book(title=title, author=author, isbn=isbn, quantity=quantity)
+        db.session.add(new_book)
+        db.session.commit()
+
+        return redirect(url_for('view_books'))
+    return render_template('add_book.html')
