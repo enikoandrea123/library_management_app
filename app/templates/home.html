@@ -7,25 +7,25 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <header class="header">
-        <div class="logo">
-            <h1>Library Management</h1>
-        </div>
-        <nav>
-            <a href="{{ url_for('view_books') }}" class="nav-link">Manage Books</a>
-        </nav>
-    </header>
+<header class="header">
+    <div class="logo">
+        <h1>Library Management</h1>
+    </div>
+    <nav>
+        <a href="{{ url_for('view_books') }}" class="nav-link">Manage Books</a>
+    </nav>
+</header>
 
-    <main class="home-main">
-        <section class="welcome-section">
-            <h2>Welcome to the Library</h2>
-            <p>Your go-to place to manage and explore books.</p>
-            <a href="{{ url_for('view_books') }}" class="btn-main">Manage Your Books</a>
-        </section>
-    </main>
+<main class="home-main">
+    <section class="welcome-section">
+        <h2>Welcome to the Library</h2>
+        <p>Your go-to place to manage and explore books.</p>
+        <a href="{{ url_for('view_books') }}" class="btn-main">Manage Your Books</a>
+    </section>
+</main>
 
-    <footer>
-        <p>&copy; 2024 Library Management System</p>
-    </footer>
+<footer>
+    <p>&copy; 2024 Library Management System</p>
+</footer>
 </body>
 </html>

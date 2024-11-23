@@ -35,7 +35,7 @@ def books():
     books = Book.query.all()
     return render_template('books.html', books=books)
 
-@app.route('/books')
+@app.route('/books', methods=['GET'])
 def view_books():
     books = Book.query.all()
     return render_template('books.html', books=books)

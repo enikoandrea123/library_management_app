@@ -147,6 +147,6 @@ footer {
     }
 
     .manage-books-main {
-        padding: 30px 15px;
-    }
-}
+        padding:
+::contentReference[oaicite:0]{index=0}
+
