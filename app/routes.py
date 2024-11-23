@@ -32,8 +32,8 @@ def delete_user(user_id):
 
 @app.route('/books')
 def books():
-    all_books = Book.query.all()
-    return render_template('books.html', books=all_books)
+    books = Book.query.all()
+    return render_template('books.html', books=books)
 
 @app.route('/books')
 def view_books():

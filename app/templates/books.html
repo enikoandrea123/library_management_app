@@ -4,31 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Books</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-     <h1>Book Catalog</h1>
-    <a href="{{ url_for('add_book') }}">Add New Book</a>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Author</th>
-                <th>ISBN</th>
-                <th>Quantity</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for book in books %}
-            <tr>
-                <td>{{ book.id }}</td>
-                <td>{{ book.title }}</td>
-                <td>{{ book.author }}</td>
-                <td>{{ book.isbn }}</td>
-                <td>{{ book.quantity }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <header class="header">
+        <div class="logo">
+            <h1>Library Management</h1>
+        </div>
+        <nav>
+            <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+            <a href="{{ url_for('add_book') }}" class="nav-link">Add Book</a>
+        </nav>
+    </header>
+
+    <main class="manage-books-main">
+        <section class="book-list">
+            <h2>Book List</h2>
+            <ul>
+                {% if books %}
+                    {% for book in books %}
+                        <li class="book-item">
+                            <span class="book-title">{{ book.title }}</span>
+                            <span class="book-author">{{ book.author }}</span>
+                            <span class="book-isbn">{{ book.isbn }}</span>
+                            <span class="book-quantity">{{ book.quantity }}</span>
+                        </li>
+                    {% endfor %}
+                {% else %}
+                    <li>No books found.</li>
+                {% endif %}
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Library Management System</p>
+    </footer>
 </body>
 </html>

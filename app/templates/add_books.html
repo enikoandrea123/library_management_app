@@ -2,20 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <title>Add Book</title>
 </head>
 <body>
     <h1>Add a New Book</h1>
-    <form method="post">
-        <label>Title:</label>
-        <input type="text" name="title" required><br>
-        <label>Author:</label>
-        <input type="text" name="author" required><br>
-        <label>ISBN:</label>
-        <input type="text" name="isbn" required><br>
-        <label>Quantity:</label>
-        <input type="number" name="quantity" required><br>
-        <button type="submit">Add Book</button>
+    <form action="{{ url_for('add_book') }}" method="POST">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" required><br><br>
+
+        <label for="author">Author:</label><br>
+        <input type="text" id="author" name="author" required><br><br>
+
+        <label for="isbn">ISBN:</label><br>
+        <input type="text" id="isbn" name="isbn" required><br><br>
+
+        <label for="quantity">Quantity:</label><br>
+        <input type="number" id="quantity" name="quantity" required><br><br>
+
+        <input type="submit" value="Add Book">
     </form>
+
+    <a href="{{ url_for('books') }}">Back to Books Catalog</a>
 </body>
 </html>
