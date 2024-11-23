@@ -3,29 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library Management</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Acorn Library</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-<header class="header">
-    <div class="logo">
-        <h1>Library Management</h1>
-    </div>
-    <nav>
-        <a href="{{ url_for('view_books') }}" class="nav-link">Manage Books</a>
-    </nav>
-</header>
-
-<main class="home-main">
-    <section class="welcome-section">
-        <h2>Welcome to the Library</h2>
-        <p>Your go-to place to manage and explore books.</p>
-        <a href="{{ url_for('view_books') }}" class="btn-main">Manage Your Books</a>
+    <header>
+        <div class="container">
+            <h1>Welcome to the Library</h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('books') }}">Books</a></li>
+                    <li><a href="{{ url_for('add_book') }}">Add Book</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Your Favorite Books, Just a Click Away</h2>
+            <p>Discover, borrow, and explore a world of literature!</p>
+            <a href="{{ url_for('books') }}" class="btn">Explore Now</a>
+        </div>
     </section>
-</main>
-
-<footer>
-    <p>&copy; 2024 Library Management System</p>
-</footer>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Library</p>
+        </div>
+    </footer>
 </body>
 </html>

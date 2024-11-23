@@ -1,4 +1,3 @@
-/* General Styles */
 * {
     margin: 0;
     padding: 0;
@@ -6,147 +5,133 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f4e6; /* Light cream background */
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f5f5;
     color: #333;
-    line-height: 1.6;
 }
 
 a {
     text-decoration: none;
-    color: inherit;
+    color: #f8b0b0;
 }
 
 header {
-    background-color: #f2e2b3; /* Creamy yellow */
-    padding: 20px;
+    background-color: #f8b0b0;
+    padding: 20px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li a {
+    font-weight: bold;
+    color: white;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #fff;
+}
+
+.hero {
+    background-color: #fff8f0;
+    padding: 60px 20px;
     text-align: center;
 }
 
-header .logo h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #5d3a00; /* Dark brown */
-}
-
-nav a {
-    margin: 0 15px;
-    font-size: 1rem;
-    color: #5d3a00;
-    font-weight: bold;
-}
-
-nav a:hover {
-    color: #9e6f3c; /* Lighter brown */
-}
-
-main {
-    padding: 40px 10%;
-}
-
-.home-main {
-    text-align: center;
-    margin-top: 50px;
-}
-
-.welcome-section h2 {
-    font-size: 2.5rem;
+.hero-content h2 {
+    color: #f8b0b0;
+    font-size: 36px;
     margin-bottom: 20px;
 }
 
-.welcome-section p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
 }
 
-.btn-main {
-    background-color: #f2e2b3; /* Creamy yellow */
-    color: #5d3a00;
-    padding: 15px 30px;
+.btn {
+    background-color: #f8b0b0;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
     border-radius: 5px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border: 2px solid #5d3a00;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
 }
 
-.btn-main:hover {
-    background-color: #9e6f3c;
-    color: #fff;
+.btn:hover {
+    background-color: #ff7a7a;
 }
 
-/* Manage Books Page */
-.manage-books-main {
-    background-color: #fff;
-    padding: 40px 0;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+footer {
+    background-color: #f8b0b0;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .book-list {
-    margin-top: 20px;
+    padding: 40px 0;
+    background-color: #fff;
 }
 
-.book-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    background-color: #f9f4e6;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
 }
 
-.book-item span {
-    font-size: 1rem;
-    color: #5d3a00;
-}
-
-.book-title {
-    font-weight: bold;
-}
-
-.book-author, .book-isbn, .book-quantity {
-    color: #9e6f3c;
-}
-
-/* Footer */
-footer {
+.book-card {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #f8b0b0;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
-    padding: 10px;
-    background-color: #5d3a00; /* Dark brown */
-    color: #fff;
-    margin-top: 40px;
+    transition: transform 0.3s;
 }
 
-/* Responsive Design */
+.book-card:hover {
+    transform: translateY(-10px);
+}
+
+.book-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.book-card h3 {
+    font-size: 22px;
+    color: #f8b0b0;
+    margin: 10px 0;
+}
+
+.book-card p {
+    color: #555;
+}
+
 @media (max-width: 768px) {
-    main {
-        padding: 40px 5%;
+    .hero-content h2 {
+        font-size: 28px;
     }
-
-    .header {
-        padding: 15px;
+    .btn {
+        font-size: 16px;
     }
-
-    .header .logo h1 {
-        font-size: 2rem;
-    }
-
-    nav a {
-        margin: 0 10px;
-        font-size: 0.9rem;
-    }
-
-    .home-main {
-        padding: 20px 0;
-    }
-
-    .btn-main {
-        padding: 12px 25px;
-    }
-
-    .manage-books-main {
-        padding:
-::contentReference[oaicite:0]{index=0}
-
+}

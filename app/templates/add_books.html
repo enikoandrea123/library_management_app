@@ -3,27 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <title>Add Book</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Add a New Book</h1>
-    <form action="{{ url_for('add_book') }}" method="POST">
-        <label for="title">Title:</label><br>
-        <input type="text" id="title" name="title" required><br><br>
-
-        <label for="author">Author:</label><br>
-        <input type="text" id="author" name="author" required><br><br>
-
-        <label for="isbn">ISBN:</label><br>
-        <input type="text" id="isbn" name="isbn" required><br><br>
-
-        <label for="quantity">Quantity:</label><br>
-        <input type="number" id="quantity" name="quantity" required><br><br>
-
-        <input type="submit" value="Add Book">
-    </form>
-
-    <a href="{{ url_for('books') }}">Back to Books Catalog</a>
+    <header>
+        <div class="container">
+            <h1>Add New Book</h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('books') }}">Book Catalog</a></li>
+                    <li><a href="{{ url_for('add_book') }}">Add Book</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="add-book-form">
+        <div class="container">
+            <h2>Add a New Book</h2>
+            <form method="POST" action="{{ url_for('add_book') }}">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="text" name="author" id="author" required>
+                </div>
+                <div class="form-group">
+                    <label for="isbn">ISBN</label>
+                    <input type="text" name="isbn" id="isbn" required>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" name="quantity" id="quantity" required>
+                </div>
+                <button type="submit" class="btn">Add Book</button>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Acorn Library</p>
+        </div>
+    </footer>
 </body>
 </html>
