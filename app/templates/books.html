@@ -3,34 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library Management</title>
+    <title>Books</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <header>
-        <h1>Library Management</h1>
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('home') }}">Home</a></li>
-                <li><a href="{{ url_for('view_books') }}">Books</a></li>
-                <li><a href="{{ url_for('add_book') }}">Add Book</a></li>
-            </ul>
-        </nav>
-    </header>
     <div class="container">
-        <div class="book-grid">
+        <h1 class="header">Library Catalog</h1>
+        <div class="book-list">
             {% for book in books %}
-            <div class="book-card">
-                <img src="{{ book.cover_image }}" alt="{{ book.title }}">
-                <h3>{{ book.title }}</h3>
-                <p>{{ book.author }}</p>
-                <a href="{{ url_for('view_book', book_id=book.id) }}">View Details</a>
+            <div class="book-item">
+                <h2>{{ book.title }}</h2>
+                <p>Author: {{ book.author }}</p>
+                <p>ISBN: {{ book.isbn }}</p>
+                <p>Available Copies: {{ book.quantity }}</p>
+                <form action="{{ url_for('borrow_book', book_id=book.id) }}" method="POST">
+                    <button type="submit" class="btn borrow-btn" {% if book.quantity == 0 %}disabled{% endif %}>Borrow</button>
+                </form>
+                <form action="{{ url_for('return_book', borrow_id=borrow_history.id) }}" method="POST">
+                    <button type="submit" class="btn return-btn">Return</button>
+                </form>
             </div>
             {% endfor %}
         </div>
     </div>
-    <footer>
-        <p>&copy; 2024 Library Management System</p>
-    </footer>
 </body>
 </html>
